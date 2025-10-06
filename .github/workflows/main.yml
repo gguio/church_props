@@ -12,11 +12,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Upload mappings
-        uses: actions/upload-artifact@v4
+      - name: Cache Telegraph mappings
+        uses: actions/cache@v3
         with:
-          name: telegraph-mappings
           path: telegraph-pages.json
+          key: telegraph-mappings-${{ hashFiles('docs/**/*.md', 'README.md') }}
+          restore-keys: |
+            telegraph-mappings-
 
       - name: Convert markdown to Telegraph
         uses: cyanxiao/md-to-telegraph-action@v1.1.1
