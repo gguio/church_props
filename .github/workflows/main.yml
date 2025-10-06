@@ -25,6 +25,7 @@ jobs:
         with:
           account-name: "Храм Покрова Пресвятой Богородицы г. Ереван"
           author-name: "Проповеди"
+          output-file: "pages-mapping.json"
           include-patterns: "**/*.md"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
