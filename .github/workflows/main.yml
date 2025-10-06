@@ -23,8 +23,9 @@ jobs:
       - name: Convert markdown to Telegraph
         uses: cyanxiao/md-to-telegraph-action@release
         with:
-          account-name: "Проповеди"
+          account-name: "Храм Покрова Пресвятой Богородицы г. Ереван"
           author-name: "Проповеди"
           include-patterns: "**/*.md"
+					output-file: "pages-mapping.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
