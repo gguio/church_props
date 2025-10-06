@@ -26,6 +26,5 @@ jobs:
           account-name: "Проповеди в храме Покрова Пресвятой Богородицы г. Ереван"
           author-name: "Храм Покрова Пресвятой Богородицы г. Ереван"
           include-patterns: "**/*.md"
-          replace-existing-pages: "true"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
