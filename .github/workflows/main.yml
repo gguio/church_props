@@ -19,7 +19,7 @@ jobs:
           path: telegraph-pages.json
 
       - name: Convert markdown to Telegraph
-        uses: cyanxiao/md-to-telegraph-action@release
+        uses: cyanxiao/md-to-telegraph-action@v1.1.1
         with:
           account-name: "Проповеди"
           author-name: "Проповеди"
