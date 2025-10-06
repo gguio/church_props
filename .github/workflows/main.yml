@@ -1,0 +1,31 @@
+name: Convert Markdown to Telegraph
+
+on:
+  push:
+    branches: [main]
+    paths: ["**/*.md"]
+
+jobs:
+  convert-to-telegraph:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Telegraph mappings
+        uses: actions/cache@v3
+        with:
+          path: telegraph-pages.json
+          key: telegraph-mappings-${{ hashFiles('**/*.md') }}
+          restore-keys: |
+            telegraph-mappings-
+
+      - name: Convert markdown to Telegraph
+        uses: cyanxiao/md-to-telegraph-action@release
+        with:
+          account-name: "Проповеди в храме Покрова Пресвятой Богородицы г. Ереван"
+          author-name: "Храм Покрова Пресвятой Богородицы г. Ереван"
+          include-patterns: "**/*.md"
+          replace-existing-pages: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
